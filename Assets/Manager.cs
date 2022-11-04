@@ -38,13 +38,11 @@ public class Manager : MonoBehaviour
 
     void OnCollisionEnter(Collision other){
         Debug.Log(other.gameObject.tag);
-        isTouch= other.gameObject.tag=="Cylinder" && !isTouch ? true : false;
-        gameObject.transform.localScale+=Vector3.one*3f;
 
         if(other.gameObject.tag=="Cube"){
-            for(int i=0; i < other.gameObject.transform.parent.parent.childCount; i++){
-                other.gameObject.transform.parent.parent.GetChild(i).GetChild(0).tag="ColledCube";
-                other.gameObject.transform.parent.parent.GetChild(i).GetChild(0).GetComponent<Rigidbody>().isKinematic=false;
+            for(int i=0; i < other.gameObject.transform.parent.childCount; i++){
+                other.gameObject.transform.parent.GetChild(i).tag="ColledCube";
+                other.gameObject.transform.parent.GetChild(i).GetComponent<Rigidbody>().isKinematic=false;
             }
 
             ScoreText.text=(int.Parse(ScoreText.text)+24).ToString();
