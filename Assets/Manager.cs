@@ -21,6 +21,7 @@ public class Manager : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity= ForceVector * ForwardSpeed;
+        Debug.Log(rb.velocity);
 
         if(Input.GetMouseButton(0) && !isTouch){
             gameObject.transform.localScale=Vector3.MoveTowards(gameObject.transform.localScale, Vector3.zero, DimensionAnim * Time.deltaTime);
@@ -35,10 +36,13 @@ public class Manager : MonoBehaviour
     void OnTriggerEnter(Collider other){
         Debug.Log(other.tag);
         isTouch= other.gameObject.tag=="Cylinder" && !isTouch ? true : false;
+        gameObject.transform.localScale+=Vector3.one*3f;
 
         if(other.gameObject.tag=="Cube"){
             ScoreText.text=(int.Parse(ScoreText.text)+1).ToString();
         }
+
+        
     }
 
     
