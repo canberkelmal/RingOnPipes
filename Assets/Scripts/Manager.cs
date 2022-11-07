@@ -21,6 +21,7 @@ public class Manager : MonoBehaviour
     Vector3 ForceVector;
     Vector3 RingTargetVector;
     float StgCounter=8;
+    public Material OtherCylColor;
     public GameObject Floor;
     public GameObject DefStg;
     public GameObject tempStg;
@@ -43,10 +44,11 @@ public class Manager : MonoBehaviour
     void FixedUpdate()
     {
         if(Input.GetKeyDown(KeyCode.R)){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Replay();
         }
 
-        rb.velocity= !gameOver ? ForceVector * ForwardSpeed * gameObject.transform.localScale.x * 0.01f : Vector3.zero;
+        //rb.velocity= !gameOver ? ForceVector * ForwardSpeed * gameObject.transform.localScale.x * 0.01f : Vector3.zero;
+        rb.velocity= !gameOver ? ForceVector * ForwardSpeed: Vector3.zero;
 
         if(Input.GetMouseButton(0) && !isTouch){
             gameObject.transform.localScale=Vector3.MoveTowards(gameObject.transform.localScale, RingTargetVector , DimensionAnim * Time.deltaTime);
@@ -106,6 +108,7 @@ public class Manager : MonoBehaviour
 
         if(StgCounter%2==0){
             RandomRadius=Random.Range(Floor.transform.GetChild(Floor.transform.childCount-2).localScale.x, 1.14f);
+            Floor.transform.GetChild(Floor.transform.childCount-1).GetChild(0).gameObject.GetComponent<Renderer>().material=OtherCylColor;
         }
 
         else{
@@ -119,6 +122,9 @@ public class Manager : MonoBehaviour
     
     void GameOver(){
         gameOver=true;
+    }
+    public void Replay(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
