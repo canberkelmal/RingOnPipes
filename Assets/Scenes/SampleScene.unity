@@ -17560,7 +17560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.882353, g: 0.7058824, b: 0.18431373, a: 1}
+  m_Color: {r: 0.19481662, g: 0.9339623, b: 0.066082224, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -20860,6 +20860,7 @@ MonoBehaviour:
   cons: 0
   ScoreText: {fileID: 1481534220}
   OtherCylColor: {fileID: 2100000, guid: 7287e1e2dac06974885cb956a38f0793, type: 2}
+  ColledCube: {fileID: 2100000, guid: 56c4e2bfd4ea1c947a780d80f033f2e9, type: 2}
   Floor: {fileID: 829422686}
   DefStg: {fileID: 1494067655}
   tempStg: {fileID: 1901353947}

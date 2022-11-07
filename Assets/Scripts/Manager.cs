@@ -22,6 +22,7 @@ public class Manager : MonoBehaviour
     Vector3 RingTargetVector;
     float StgCounter=8;
     public Material OtherCylColor;
+    public Material ColledCube;
     public GameObject Floor;
     public GameObject DefStg;
     public GameObject tempStg;
@@ -89,11 +90,13 @@ public class Manager : MonoBehaviour
         if(other.gameObject.tag=="Cube"){
 
             other.gameObject.transform.parent.GetChild(0).gameObject.tag="ColledCube";
+            other.gameObject.transform.parent.GetChild(0).gameObject.GetComponent<Renderer>().material=ColledCube;
             other.gameObject.transform.parent.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic=false;
             other.gameObject.transform.parent.GetChild(0).gameObject.GetComponent<Rigidbody>().velocity=new Vector3(1.8f * other.gameObject.transform.parent.GetChild(0).gameObject.transform.position.x, other.gameObject.transform.parent.GetChild(0).gameObject.transform.position.y,
                                                                         1) * 6;
 
             other.gameObject.transform.parent.GetChild(1).gameObject.tag="ColledCube";
+            other.gameObject.transform.parent.GetChild(1).gameObject.GetComponent<Renderer>().material=ColledCube;
             other.gameObject.transform.parent.GetChild(1).gameObject.GetComponent<Rigidbody>().isKinematic=false;
             other.gameObject.transform.parent.GetChild(1).gameObject.GetComponent<Rigidbody>().velocity=new Vector3(1.8f * other.gameObject.transform.parent.GetChild(1).gameObject.transform.position.x, other.gameObject.transform.parent.GetChild(1).gameObject.transform.position.y,
                                                                         1) * 6;
@@ -101,6 +104,7 @@ public class Manager : MonoBehaviour
             for(int i=2; i < other.gameObject.transform.parent.childCount; i++){
                 tempCube= other.gameObject.transform.parent.GetChild(i).gameObject;
                 tempCube.tag="ColledCube";
+                other.gameObject.transform.parent.GetChild(i).gameObject.GetComponent<Renderer>().material=ColledCube;
                 tempCube.GetComponent<Rigidbody>().isKinematic=false;
                 tempCube.GetComponent<Rigidbody>().velocity=new Vector3(1.1f * tempCube.transform.position.x, tempCube.transform.position.y,
                                                                         1) * 6;
