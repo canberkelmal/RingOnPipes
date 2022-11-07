@@ -61,7 +61,7 @@ public class Manager : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other){
+    /* void OnCollisionEnter(Collision other){
 
         if(other.gameObject.tag=="Cube"){
             for(int i=0; i < other.gameObject.transform.parent.childCount; i++){
@@ -71,22 +71,45 @@ public class Manager : MonoBehaviour
                 if(tempCube.transform.position.y>0){
                     tempCube.GetComponent<Rigidbody>().velocity=new Vector3(tempCube.transform.position.x-other.gameObject.transform.parent.parent.GetChild(0).transform.position.x,
                                                                             tempCube.transform.position.y-other.gameObject.transform.parent.parent.GetChild(0).transform.position.y,
-                                                                            tempCube.GetComponent<Rigidbody>().velocity.z) *tempCube.transform.position.y*4;
-            }
+                                                                            tempCube.GetComponent<Rigidbody>().velocity.z) *tempCube.transform.position.y*40;
+                }
             }
 
             ScoreText.text=(int.Parse(ScoreText.text)+24).ToString();
         }
 
         if(other.gameObject.tag=="Cylinder"){
-            Debug.Log("CylinderCrushGameOver");
-            GameOver();
+            //Debug.Log("CylinderCrushGameOver");
+            //GameOver();
         }
-
-        
-    }
+    } */
 
     void OnTriggerEnter(Collider other){
+
+        if(other.gameObject.tag=="Cube"){
+
+            other.gameObject.transform.parent.GetChild(0).gameObject.tag="ColledCube";
+            other.gameObject.transform.parent.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic=false;
+            other.gameObject.transform.parent.GetChild(0).gameObject.GetComponent<Rigidbody>().velocity=new Vector3(1.8f * other.gameObject.transform.parent.GetChild(0).gameObject.transform.position.x, other.gameObject.transform.parent.GetChild(0).gameObject.transform.position.y,
+                                                                        1) * 6;
+
+            other.gameObject.transform.parent.GetChild(1).gameObject.tag="ColledCube";
+            other.gameObject.transform.parent.GetChild(1).gameObject.GetComponent<Rigidbody>().isKinematic=false;
+            other.gameObject.transform.parent.GetChild(1).gameObject.GetComponent<Rigidbody>().velocity=new Vector3(1.8f * other.gameObject.transform.parent.GetChild(1).gameObject.transform.position.x, other.gameObject.transform.parent.GetChild(1).gameObject.transform.position.y,
+                                                                        1) * 6;
+            
+            for(int i=2; i < other.gameObject.transform.parent.childCount; i++){
+                tempCube= other.gameObject.transform.parent.GetChild(i).gameObject;
+                tempCube.tag="ColledCube";
+                tempCube.GetComponent<Rigidbody>().isKinematic=false;
+                tempCube.GetComponent<Rigidbody>().velocity=new Vector3(1.1f * tempCube.transform.position.x, tempCube.transform.position.y,
+                                                                        1) * 6;
+
+            }
+
+            ScoreText.text=(int.Parse(ScoreText.text)+24).ToString();
+        }
+
         if(other.gameObject.tag=="Cylinder"){
             Debug.Log("triggered");
             ttempStg=tempStg;
@@ -97,6 +120,7 @@ public class Manager : MonoBehaviour
             ChangeCons();
         }
     }
+
 
     void ChangeCons(){
         a=currentStg.transform.localScale.x;
