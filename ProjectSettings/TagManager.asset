@@ -8,6 +8,9 @@ TagManager:
   - Cylinder
   - Ring
   - ColledCube
+  - a
+  - b
+  - c
   layers:
   - Default
   - TransparentFX
