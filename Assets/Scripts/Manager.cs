@@ -48,9 +48,10 @@ public class Manager : MonoBehaviour
         }
 
         //rb.velocity= !gameOver ? ForceVector * ForwardSpeed * gameObject.transform.localScale.x * 0.01f : Vector3.zero;
-        rb.velocity= !gameOver ? ForceVector * ForwardSpeed: Vector3.zero;
+        rb.velocity= !gameOver ? ForceVector * ForwardSpeed : Vector3.zero;
 
-        if(Input.GetMouseButton(0) && !isTouch){
+        if(Input.GetMouseButton(0) && !isTouch && !gameOver){
+            rb.velocity+= ForceVector / (gameObject.transform.localScale.x*0.005f);
             gameObject.transform.localScale=Vector3.MoveTowards(gameObject.transform.localScale, RingTargetVector , DimensionAnim * Time.deltaTime);
         }
 
@@ -122,6 +123,7 @@ public class Manager : MonoBehaviour
     
     void GameOver(){
         gameOver=true;
+        ForceVector.z=0f;
     }
     public void Replay(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

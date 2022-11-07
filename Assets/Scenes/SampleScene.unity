@@ -20043,7 +20043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177dfa610fa3e2a49a9d83a88f14a1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForwardSpeed: 4
+  ForwardSpeed: 3
   DimensionAnim: 200
   DimAnimOffset: 1
   isTouch: 0
