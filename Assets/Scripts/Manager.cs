@@ -75,6 +75,7 @@ public class Manager : MonoBehaviour
         }
 
         if(other.gameObject.tag=="Cylinder"){
+            Debug.Log("CylinderCrushGameOver");
             GameOver();
         }
 
