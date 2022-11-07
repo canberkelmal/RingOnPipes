@@ -55,6 +55,10 @@ public class Manager : MonoBehaviour
             ScoreText.text=(int.Parse(ScoreText.text)+24).ToString();
         }
 
+        if(other.gameObject.tag=="Cylinder"){
+            
+        }
+
         
     }
 
