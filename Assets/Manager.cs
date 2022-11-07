@@ -45,9 +45,11 @@ public class Manager : MonoBehaviour
                 tempCube= other.gameObject.transform.parent.GetChild(i).gameObject;
                 tempCube.tag="ColledCube";
                 tempCube.GetComponent<Rigidbody>().isKinematic=false;
-                tempCube.GetComponent<Rigidbody>().velocity=new Vector3(tempCube.transform.position.x-other.gameObject.transform.parent.parent.GetChild(0).transform.position.x,
-                                                                        tempCube.transform.position.y-other.gameObject.transform.parent.parent.GetChild(0).transform.position.y,
-                                                                        tempCube.GetComponent<Rigidbody>().velocity.z) *ForwardSpeed*4;
+                if(tempCube.transform.position.y>0){
+                    tempCube.GetComponent<Rigidbody>().velocity=new Vector3(tempCube.transform.position.x-other.gameObject.transform.parent.parent.GetChild(0).transform.position.x,
+                                                                            tempCube.transform.position.y-other.gameObject.transform.parent.parent.GetChild(0).transform.position.y,
+                                                                            tempCube.GetComponent<Rigidbody>().velocity.z) *tempCube.transform.position.y*4;
+            }
             }
 
             ScoreText.text=(int.Parse(ScoreText.text)+24).ToString();
