@@ -13,6 +13,9 @@ public class Manager : MonoBehaviour
     GameObject tempCube;
     Rigidbody rb;
     Vector3 ForceVector;
+    GameObject tempStg;
+    GameObject currentStg;
+    GameObject ttempStg;
     
     void Start()
     {
@@ -56,7 +59,10 @@ public class Manager : MonoBehaviour
         }
 
         if(other.gameObject.tag=="Cylinder"){
-            
+            ttempStg=tempStg;
+            tempStg=currentStg;
+            currentStg=other.transform.parent.parent.gameObject;
+            Destroy(ttempStg);
         }
 
         
