@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
     public float DimensionAnim=80f;
     public bool isTouch=false;
     public Text ScoreText;
+    GameObject tempCube;
     Rigidbody rb;
     Vector3 ForceVector;
     
@@ -32,7 +33,7 @@ public class Manager : MonoBehaviour
         }
 
         if(!Input.GetMouseButton(0)){
-            gameObject.transform.localScale=Vector3.MoveTowards(gameObject.transform.localScale, Vector3.one*91.2f, DimensionAnim * Time.deltaTime);
+            gameObject.transform.localScale=Vector3.MoveTowards(gameObject.transform.localScale, Vector3.one*100f, DimensionAnim * Time.deltaTime);
         }
     }
 
@@ -41,8 +42,12 @@ public class Manager : MonoBehaviour
 
         if(other.gameObject.tag=="Cube"){
             for(int i=0; i < other.gameObject.transform.parent.childCount; i++){
-                other.gameObject.transform.parent.GetChild(i).tag="ColledCube";
-                other.gameObject.transform.parent.GetChild(i).GetComponent<Rigidbody>().isKinematic=false;
+                tempCube= other.gameObject.transform.parent.GetChild(i).gameObject;
+                tempCube.tag="ColledCube";
+                tempCube.GetComponent<Rigidbody>().isKinematic=false;
+                tempCube.GetComponent<Rigidbody>().velocity=new Vector3(tempCube.transform.position.x-other.gameObject.transform.parent.parent.GetChild(0).transform.position.x,
+                                                                        tempCube.transform.position.y-other.gameObject.transform.parent.parent.GetChild(0).transform.position.y,
+                                                                        tempCube.GetComponent<Rigidbody>().velocity.z) *ForwardSpeed*4;
             }
 
             ScoreText.text=(int.Parse(ScoreText.text)+24).ToString();
