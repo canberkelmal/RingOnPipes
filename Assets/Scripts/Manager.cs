@@ -20,7 +20,7 @@ public class Manager : MonoBehaviour
     Rigidbody rb;
     Vector3 ForceVector;
     Vector3 RingTargetVector;
-    GameObject tempStg;
+    public GameObject tempStg;
     public GameObject currentStg;
     GameObject ttempStg;
     
@@ -69,15 +69,17 @@ public class Manager : MonoBehaviour
             ScoreText.text=(int.Parse(ScoreText.text)+24).ToString();
         }
 
+        
+    }
+
+    void OnTriggerEnter(Collider other){
         if(other.gameObject.tag=="Cylinder"){
-            Debug.Log(gameObject.transform.localScale);
+            Debug.Log("triggered");
             ttempStg=tempStg;
             tempStg=currentStg;
-            currentStg=other.transform.parent.parent.gameObject;
+            currentStg=other.transform.parent.gameObject;
             Destroy(ttempStg);
         }
-
-        
     }
 
     void ChangeCons(){
