@@ -10,9 +10,9 @@ public class Manager : MonoBehaviour
     public float DimensionAnim=80f;
     public float DimAnimOffset=1f;
     public bool isTouch=false;
-    public float Cmin=0.855f;
+    public float Cmin=0.7f;
     public float Cmax = 1.14f;
-    public float Rmin = 50;
+    public float Rmin = 41;
     public float Rmax = 67;
     public float a,cons;
     public Text ScoreText;
@@ -39,6 +39,7 @@ public class Manager : MonoBehaviour
         RingTargetVector=new Vector3(cons, cons, gameObject.transform.localScale.z);
         ChangeCons();
         gameOver=false;
+        Cmin=DefStg.transform.localScale.x;
     }
 
     void FixedUpdate()

@@ -11765,7 +11765,7 @@ Transform:
   m_GameObject: {fileID: 976945718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5.4}
-  m_LocalScale: {x: 0.855, y: 0.855, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 274312666}
@@ -17046,7 +17046,7 @@ Transform:
   m_GameObject: {fileID: 1494067655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -14.6}
-  m_LocalScale: {x: 0.855, y: 0.855, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1170744078}
@@ -20047,9 +20047,9 @@ MonoBehaviour:
   DimensionAnim: 200
   DimAnimOffset: 1
   isTouch: 0
-  Cmin: 0.855
+  Cmin: 0.7
   Cmax: 1.14
-  Rmin: 50
+  Rmin: 41
   Rmax: 67
   a: 0.855
   cons: 0
@@ -20613,7 +20613,7 @@ Transform:
   m_GameObject: {fileID: 1901353947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -4.6}
-  m_LocalScale: {x: 0.855, y: 0.855, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 139509372}
