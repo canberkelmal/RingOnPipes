@@ -21,6 +21,7 @@ public class Manager : MonoBehaviour
     Vector3 ForceVector;
     Vector3 RingTargetVector;
     float StgCounter=8;
+    public GameObject GameOverPanel;
     public Material OtherCylColor;
     public Material ColledCube;
     public GameObject Floor;
@@ -41,6 +42,7 @@ public class Manager : MonoBehaviour
         ChangeCons();
         gameOver=false;
         Cmin=DefStg.transform.localScale.x;
+        GameOverPanel.SetActive(false);
     }
 
     void FixedUpdate()
@@ -153,6 +155,7 @@ public class Manager : MonoBehaviour
     void GameOver(){
         gameOver=true;
         ForceVector.z=0f;
+        GameOverPanel.SetActive(true);
     }
     public void Replay(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
