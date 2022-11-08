@@ -62,9 +62,9 @@ public class Manager : MonoBehaviour
         }
     }
 
-    /* void OnCollisionEnter(Collision other){
+    void OnCollisionEnter(Collision OtherCollision){
 
-        if(other.gameObject.tag=="Cube"){
+        /* if(other.gameObject.tag=="Cube"){
             for(int i=0; i < other.gameObject.transform.parent.childCount; i++){
                 tempCube= other.gameObject.transform.parent.GetChild(i).gameObject;
                 tempCube.tag="ColledCube";
@@ -77,13 +77,13 @@ public class Manager : MonoBehaviour
             }
 
             ScoreText.text=(int.Parse(ScoreText.text)+24).ToString();
-        }
+        } */
 
-        if(other.gameObject.tag=="Cylinder"){
-            //Debug.Log("CylinderCrushGameOver");
-            //GameOver();
+        if(OtherCollision.gameObject.tag=="Cylinder"){
+            Debug.Log("CylinderCrushGameOver");
+            GameOver();
         }
-    } */
+    }
 
     void OnTriggerEnter(Collider other){
 
