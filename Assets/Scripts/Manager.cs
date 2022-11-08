@@ -137,12 +137,12 @@ public class Manager : MonoBehaviour
         Instantiate(DefStg, new Vector3(0, 0, DefStg.transform.position.z+(10*StgCounter)), DefStg.transform.rotation, Floor.transform);
 
         if(StgCounter%2==0){
-            RandomRadius=Random.Range(Floor.transform.GetChild(Floor.transform.childCount-2).localScale.x, 1.14f);
+            RandomRadius=Random.Range(Floor.transform.GetChild(Floor.transform.childCount-2).localScale.x, Cmax);
             Floor.transform.GetChild(Floor.transform.childCount-1).GetChild(0).gameObject.GetComponent<Renderer>().material=OtherCylColor;
         }
 
         else{
-            RandomRadius=Random.Range(0.885f, Floor.transform.GetChild(Floor.transform.childCount-2).localScale.x);
+            RandomRadius=Random.Range(Cmin, Floor.transform.GetChild(Floor.transform.childCount-2).localScale.x);
         }
         
         Floor.transform.GetChild(Floor.transform.childCount-1).localScale=new Vector3(RandomRadius , RandomRadius , 1);
